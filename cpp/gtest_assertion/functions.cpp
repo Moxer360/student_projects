@@ -1,8 +1,3 @@
-#include <iostream>
-#include <map>
-#include <string>
-#include <algorithm>
-
 double ExchangeRate(const string& sourceCurrency, const string& targetCurrency) {
 	map<pair<string, string>, double> exchangeRates{
 		{{"usd", "eur"}, 0.92},
