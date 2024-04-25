@@ -1,3 +1,10 @@
+#include <iostream>
+#include <map>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 double ExchangeRate(const string& sourceCurrency, const string& targetCurrency) {
 	map<pair<string, string>, double> exchangeRates{
 		{{"usd", "eur"}, 0.92},
@@ -28,6 +35,10 @@ double ExchangeRate(const string& sourceCurrency, const string& targetCurrency) 
 }
 
 double Convert(double amount, const string& sourceCurrency, const string& targetCurrency) {
+	if (amount == 0) {
+		return -1;
+	}
+
 	double exchangeRate = ExchangeRate(sourceCurrency, targetCurrency);
 	if (exchangeRate != -1) {
 		return amount * exchangeRate;

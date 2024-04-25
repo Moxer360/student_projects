@@ -1,7 +1,9 @@
 // main_test.cpp
 #include <gtest/gtest.h>
-#include "functions.cpp"
+#include "functions.cpp" 
 
+
+// Testy dla ExchangeRate
 TEST(ExchangeRateTest, UsdToEur) {
     EXPECT_EQ(0.92, ExchangeRate("usd", "eur"));
 }
@@ -14,7 +16,7 @@ TEST(ExchangeRateTest, PlnToGbp) {
     EXPECT_EQ(0.20, ExchangeRate("pln", "gbp"));
 }
 
-// Testy dla funkcji Convert()
+// Testy dla Convert
 TEST(ConvertTest, UsdToEur) {
     EXPECT_EQ(92, Convert(100, "usd", "eur"));
 }
@@ -27,15 +29,16 @@ TEST(ConvertTest, PlnToGbp) {
     EXPECT_EQ(10, Convert(50, "pln", "gbp"));
 }
 
+
 TEST(ExchangeRateTest, EdgeCases) {
     EXPECT_EQ(-1, ExchangeRate("usd", "usd")); // Ta sama waluta
-    EXPECT_EQ(-1, ExchangeRate("chf", "usd")); // Niepoprawna waluta
+    EXPECT_EQ(-1, ExchangeRate("eds", "usd")); // Niepoprawna waluta
 }
 
 TEST(ConvertTest, EdgeCases) {
     EXPECT_EQ(-1, Convert(0, "usd", "eur")); // Przeliczanie z zera
     EXPECT_EQ(-1, Convert(100, "usd", "usd")); // Ta sama waluta
-    EXPECT_EQ(-1, Convert(50, "chf", "usd")); // Niepoprawna waluta
+    EXPECT_EQ(-1, Convert(50, "eds", "usd")); // Niepoprawna waluta
 }
 
 int main(int argc, char **argv) {
